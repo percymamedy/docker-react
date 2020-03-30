@@ -1,3 +1,5 @@
+language: generic 
+
 sudo: required
 services:
     - docker
@@ -6,4 +8,4 @@ before_install:
     - docker build -t percymamedy/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run percymamedy/docker-react npm run test -- --coverage
+    - docker run -e CI=true percymamedy/docker-react npm run test
